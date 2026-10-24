@@ -105015,6 +105015,7 @@ q=new A.f2(B.c.fS(B.b.bM(B.b.ii(s,1)," - ")),r,"","","",!1,0,0)}else q=new A.f2(
 return new A.y9(q,0,0,p.d,p.e,p.f,p.r,p.x,"","",!1)},
 aFT(a){var s=this.b
 if(s<=0||this.c<=0)return null
+if(s>1e11)s/=1000
 return B.d.eX((a.a/1000-s)/this.c,0,1)}}
 A.ayQ.prototype={
 $1(a){var s=A.q8(this.a.h(0,a))

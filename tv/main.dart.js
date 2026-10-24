@@ -82905,6 +82905,7 @@ q=new A.eO(B.c.hM(B.b.aZ(B.b.f9(s,1)," - ")),r,"","","",!1,0,0)}else q=new A.eO(
 return new A.uF(q,0,0,p.d,p.e,p.f,p.r,p.x,"","",!1)},
 ap9(a){var s=this.b
 if(s<=0||this.c<=0)return null
+if(s>1e11)s/=1000
 return B.d.fh((a.a/1000-s)/this.c,0,1)}}
 A.amZ.prototype={
 $1(a){var s=A.qP(this.a.i(0,a))
