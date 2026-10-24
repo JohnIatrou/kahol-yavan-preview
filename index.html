@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>רדיו כחול יוון – תצוגה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap">
+<style>
+  /* Two device frames side by side: the phone app and the Android TV app, both live. */
+  :root {
+    --night: #0D1A3A;
+    --deep: #08122B;
+    --panel: #16264F;
+    --sky: #37B8EB;
+    --muted: #93A3C8;
+    --line: #23345F;
+    --font: "Assistant", "Segoe UI", Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    background: radial-gradient(1200px 600px at 80% -10%, #15306b 0%, var(--deep) 60%);
+    color: #fff; font-family: var(--font);
+    padding: 24px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px));
+  }
+  header { max-width: 1500px; margin: 0 auto 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; }
+  h1 { margin: 0; font-size: 28px; font-weight: 800; color: var(--sky); }
+  header p { margin: 0; color: var(--muted); font-size: 15px; }
+  main { max-width: 1500px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; justify-content: center; }
+  section { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  h2 { margin: 0; font-size: 18px; font-weight: 800; }
+  .hint { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+  kbd { font-family: var(--font); font-weight: 700; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; color: #fff; }
+  .phone {
+    width: 390px; max-width: 100%; height: 820px; max-height: calc(100vh - 160px); min-height: 560px;
+    border: 10px solid #000; border-radius: 46px; overflow: hidden; background: var(--night);
+    box-shadow: 0 0 0 2px #2a3a66, 0 30px 80px rgba(0,0,0,.5);
+  }
+  .tv-wrap { width: min(960px, calc(100vw - 32px)); }
+  .tv {
+    width: 100%; aspect-ratio: 16 / 9; border: 12px solid #05070d; border-radius: 14px; overflow: hidden;
+    background: var(--night); box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  }
+  .stand { width: 22%; height: 14px; margin: 0 auto; background: #05070d; border-radius: 0 0 10px 10px; }
+  iframe { display: block; width: 100%; height: 100%; border: 0; }
+  .tv:focus-within { outline: 3px solid var(--sky); outline-offset: 4px; }
+  footer { max-width: 1500px; margin: 28px auto 0; color: var(--muted); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>רדיו כחול יוון</h1>
+    <p>תצוגה חיה של האפליקציה החדשה, עם הנתונים האמיתיים מהאתר.</p>
+  </header>
+  <main>
+    <section aria-label="טלפון">
+      <h2>טלפון</h2>
+      <p class="hint">גוללים ולוחצים כמו בטלפון.</p>
+      <div class="phone"><iframe src="phone/" title="אפליקציית הטלפון" allow="autoplay"></iframe></div>
+    </section>
+    <section class="tv-wrap" aria-label="טלוויזיה">
+      <h2>טלוויזיה</h2>
+      <p class="hint">לחצו פעם אחת על המסך, ואז השלט הוא המקלדת: <kbd>חצים</kbd> לניווט, <kbd>Enter</kbd> לבחירה, <kbd>Esc</kbd> לחזרה אחורה.</p>
+      <div class="tv"><iframe src="tv/" title="אפליקציית הטלוויזיה" allow="autoplay"></iframe></div>
+      <div class="stand"></div>
+    </section>
+  </main>
+  <footer>הגרסה מתעדכנת אחרי כל שינוי. אם משהו לא התעדכן, רעננו את הדף.</footer>
+</body>
+</html>
