@@ -70,9 +70,10 @@
   /* 1: light square, logo whole */
   .lg1 { left:12px; bottom:12px; background:#E6E6E6; border-radius:12px; border:3px solid var(--night); }
   .lg1 img { object-fit:contain; padding:3px; }
-  /* 2: the logo cropped to its text, on the station's dark blue, like the radio badge */
-  .lg2 { left:12px; bottom:12px; border-radius:12px; border:3px solid var(--night); background:#E6E6E6; }
-  .lg2 img { object-fit:cover; object-position:50% 70%; transform:scale(1.35); }
+  /* 2: a larger white square with a thin white frame, stuck out past the corner like the radio badge */
+  .lg2 { left:-1px; bottom:-1px; width:70px; height:70px; border-radius:0 14px 0 0; background:#fff; border:none; box-shadow:0 0 0 2px rgba(255,255,255,.9), 0 4px 14px rgba(0,0,0,.5); }
+  .lg2 img { object-fit:contain; padding:4px; }
+  .slide.l2 .bottom { left:96px; }
   /* 3: round, tight to the corner */
   .lg3 { left:10px; top:10px; border-radius:50%; background:#E6E6E6; border:3px solid #fff; box-shadow:0 4px 12px rgba(0,0,0,.5); }
   .lg3 img { object-fit:contain; padding:4px; }
@@ -101,7 +102,7 @@
   <h2>לוגו לילות יוון בכתבות: ריבוע קטן</h2>
   <div class="grid">
     <div><div class="opt"><b>1</b><span>ריבוע בהיר עם הלוגו כולו, במסגרת כהה, כמו הלוגו על עטיפת השיר</span></div><div class="slide" id="S1"></div></div>
-    <div><div class="opt"><b>2</b><span>ריבוע עם הלוגו מוגדל, כך שהמילים "לילות יוון" ממלאות אותו</span></div><div class="slide" id="S2"></div></div>
+    <div><div class="opt"><b>2</b><span>ריבוע לבן גדול יותר, צמוד לפינה התחתונה של התמונה</span></div><div class="slide l2" id="S2"></div></div>
     <div><div class="opt"><b>3</b><span>עיגול עם מסגרת לבנה בפינה העליונה</span></div><div class="slide l3" id="S3"></div></div>
   </div>
   <footer>אחרי שתבחר, אכניס את זה לאפליקציה ולתצוגה החיה.</footer>
