@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>אפשרויות עיצוב</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800;900&display=swap">
 <style>
   /* Design options for the TV app, drawn with the live data from the site. */
@@ -80,12 +81,24 @@
   .slide.l3 .bottom { left:16px; }
   .slide.l3 .top { right:16px; }
   .grid { display:grid; gap:18px; grid-template-columns:1fr; }
+  /* Weather icons */
+  .wx { display:grid; gap:14px; }
+  .wxrow { background:var(--night); border:1px solid var(--line); border-radius:14px; padding:12px 16px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+  .wxit { display:flex; flex-direction:column; align-items:center; gap:2px; font-size:13px; color:var(--muted); min-width:70px; }
+  .wxit img, .wxit .mi { width:56px; height:56px; }
+  .mi { font-family:'Material Icons'; font-size:44px; line-height:56px; text-align:center; }
+  .tick { background:var(--night); border-bottom:1px solid var(--line); height:44px; display:flex; align-items:center; gap:10px; padding:0 16px; font-size:15px; border-radius:10px; }
+  .tick .lbl { background:var(--live); border-radius:6px; padding:2px 10px; font-weight:800; }
+  .tick .news { flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tick .clock { color:var(--sky); font-weight:700; }
+  .tick img { width:34px; height:34px; }
+  .tick .temp { color:var(--sky); font-weight:800; }
   footer { margin-top:40px; color:var(--muted); }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>אפשרויות עיצוב לטלוויזיה</h1>
+  <h1>אפשרויות עיצוב</h1>
   <p class="lead">עם הנתונים החיים מהאתר. בחרו אות ומספר, למשל "ב ו־2".</p>
 
   <h2>שודרו לאחרונה: קטן, עם שעת השידור, בלי ניווט</h2>
@@ -104,6 +117,15 @@
     <div><div class="opt"><b>1</b><span>ריבוע בהיר עם הלוגו כולו, במסגרת כהה, כמו הלוגו על עטיפת השיר</span></div><div class="slide" id="S1"></div></div>
     <div><div class="opt"><b>2</b><span>ריבוע לבן גדול יותר, צמוד לפינה התחתונה של התמונה</span></div><div class="slide l2" id="S2"></div></div>
     <div><div class="opt"><b>3</b><span>עיגול עם מסגרת לבנה בפינה העליונה</span></div><div class="slide l3" id="S3"></div></div>
+  </div>
+
+  <h2>אייקונים למזג האוויר בשורת העדכונים</h2>
+  <p class="lead">כך זה ייראה בשורה, ליד התאריך והשעה. הדוגמה משתמשת בסגנון א.</p>
+  <div class="tick"><span class="lbl">עדכונים</span><span class="news">23.10 • 09:30 | מזג האוויר ביוון: סופות רעמים בסלוניקי</span><span class="clock">יום ראשון 25.10.2026 · 09:15</span><span style="color:var(--line)">|</span><b>תל אביב</b><img src="https://cdn.jsdelivr.net/gh/basmilius/weather-icons@dev/production/fill/svg/partly-cloudy-day.svg" alt=""><span class="temp">26°</span></div>
+  <div class="wx">
+    <div><div class="opt"><b>א</b><span>אייקונים צבעוניים מונפשים: השמש מסתובבת, העננים זזים והגשם יורד</span></div><div class="wxrow" id="WA"></div></div>
+    <div><div class="opt"><b>ב</b><span>אותם אייקונים צבעוניים, בלי תנועה</span></div><div class="wxrow" id="WB"></div></div>
+    <div><div class="opt"><b>ג</b><span>האייקונים הפשוטים שיש עכשיו באפליקציה</span></div><div class="wxrow" id="WC"></div></div>
   </div>
   <footer>אחרי שתבחר, אכניס את זה לאפליקציה ולתצוגה החיה.</footer>
 </div>
@@ -164,6 +186,12 @@ async function main() {
   });
   fit();
 }
+
+const WX = 'https://cdn.jsdelivr.net/gh/basmilius/weather-icons@dev/production/fill/';
+const kinds = [['clear-day','שמש','wb_sunny','#FFB547'],['partly-cloudy-day','מעונן חלקית','wb_cloudy','#FFB547'],['overcast','מעונן','cloud','#C9D2E8'],['rain','גשם','water_drop','#37B8EB'],['thunderstorms','סופת רעמים','thunderstorm','#FFD166'],['fog','ערפל','foggy','#C9D2E8'],['clear-night','לילה בהיר','nightlight_round','#DDE3EC']];
+WA.innerHTML = kinds.map(k => `<div class="wxit"><img src="${WX}svg/${k[0]}.svg" alt="">${k[1]}</div>`).join('');
+WB.innerHTML = kinds.map(k => `<div class="wxit"><img src="${WX}svg-static/${k[0]}.svg" alt="">${k[1]}</div>`).join('');
+WC.innerHTML = kinds.map(k => `<div class="wxit"><span class="mi" style="color:${k[3]}">${k[2]}</span>${k[1]}</div>`).join('');
 main(); fit();
 </script>
 </body>
