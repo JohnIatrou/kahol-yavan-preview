@@ -1,0 +1,31 @@
+<!doctype html><html dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=1472"><title>פלייליסטים – עיצובים</title><style>
+@font-face{font-family:A;src:url(Assistant-800.ttf);font-weight:800}
+@font-face{font-family:A;src:url(Assistant-700.ttf);font-weight:700}
+body{margin:0;background:#08122B;font-family:A;color:#fff;padding:28px 36px;width:1400px}
+h2{font-size:30px;margin:26px 0 6px} p{margin:0 0 14px;color:#9fb3d9;font-size:18px}
+.row{display:flex;gap:18px}
+.card{width:205px;height:205px;border-radius:22px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;box-shadow:0 8px 22px #0007}
+.card img.logo{width:165px}
+.pill{background:#fff;border-radius:999px;padding:6px 16px;font-weight:800;font-size:19px;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.pill img{width:30px;height:30px;margin:-4px 0}
+.corner{position:absolute;top:10px;left:10px;width:58px;height:58px}
+.card.c img.logo{width:150px;margin-top:22px}
+.sheet{display:flex;gap:26px;background:#1d4f96;border-radius:20px;padding:18px 26px;width:max-content}
+.sheet div{text-align:center;font-size:17px;font-weight:700}.sheet img{width:96px;display:block;margin:0 auto 6px}
+</style></head><body>
+<h2>האייקונים החדשים</h2><p>צללית שחורה עם מסגרת לבנה וגימור כסוף וכחול, בהשראת הלוגו: ירח, בוזוקי, זריחה מעל הים, מקדש, זר דפנה ותקליט</p>
+<div class="sheet" id="S"></div>
+<h2>ב · אייקון קטן בתוך מסגרת השם</h2><p></p>
+<div class="row" id="A"></div>
+<h2>ב · אייקון גדול בפינת הכרטיס</h2><p>האייקון בולט על הצבע, ושם הפלייליסט נשאר נקי</p>
+<div class="row" id="C"></div>
+<h2>ב · בלי אייקונים</h2><p>רק הלוגו ושם הפלייליסט</p>
+<div class="row" id="B"></div>
+<script>
+const L=[['שעה שקטה','moon','#4FC3F7','#0b3a5c'],['שעה שמחה','bouzouki','#FF7043','#5c1d0b'],['השירים החדשים','sun','#66BB6A','#123d17'],['קלאסיקות','temple','#BA68C8','#3b1446'],['הטופ 20','laurel','#F4B740','#4a3305'],['מגה להיטים','vinyl','#EF5350','#4d0d0d']];
+const card=(icon)=>([n,e,c,d])=>`<div class="card" style="background:linear-gradient(135deg,${c},${d})"><img class="logo" src="word.png"><div class="pill" style="color:${d}">${icon?`<img src="${e}.svg">`:''}${n}</div></div>`;
+document.getElementById('A').innerHTML=L.map(card(true)).join('');
+document.getElementById('C').innerHTML=L.map(([n,e,c,d])=>`<div class="card c" style="background:linear-gradient(135deg,${c},${d})"><img class="corner" src="${e}.svg"><img class="logo" src="word.png"><div class="pill" style="color:${d}">${n}</div></div>`).join('');
+document.getElementById('S').innerHTML=L.map(([n,e])=>`<div><img src="${e}.svg">${n}</div>`).join('');
+document.getElementById('B').innerHTML=L.map(card(false)).join('');
+</script></body></html>
